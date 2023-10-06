@@ -24,6 +24,10 @@
  */
 
 
+// setTimeout(function () {
+//     cityQuiz();
+// }, 100);
+
 console.log("DIG基礎コースFD20 卒業制作");
 
 
@@ -34,7 +38,7 @@ function cityQuiz() {
 
     let moneyDisplay = document.getElementById('moneyDisplay');
     moneyDisplay.textContent = "賞金：" + money + "万円";
-
+    // destination.textContent = targetObject["city"];
 
     const cityInfo = [
         {
@@ -361,7 +365,7 @@ function cityQuiz() {
 
                     for (const CityObject2 of cityInfo) {   //回答都市オブジェクトを取り出し     
                         if (inputAnswer === CityObject2["city"]) {
-                            inputCheck = "🚨残念！ " + inputAnswer + "ではありません🚨　　　　　　　　　"; // 一致→正規として設定
+                            inputCheck = "❌残念！ " + inputAnswer + "ではありません❌　　　　　　　　　"; // 一致→正規として設定
                             inputAnswerObject = CityObject2;    //回答都市のオブジェクトを決定
                             if ((targetObject["lati"] - inputAnswerObject["lati"]) > 3) {
                                 northSouth = "⬆⬆⬆目的地はすごく北　";
@@ -422,11 +426,13 @@ function cityQuiz() {
 
                 }
                 console.log("やったね！");
+                document.getElementById("destination").textContent = "さあ、" + inputAnswer + "へ行ってらっしゃい！";
             }
             checkAnswer(inputAnswer);
         }
     }
     moneyDisplay.textContent = "賞金：" + money + "万円！";
+
 }
 
 cityQuiz()
